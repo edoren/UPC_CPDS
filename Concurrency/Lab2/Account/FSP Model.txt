@@ -1,0 +1,7 @@
+const N = 10 //actually, it has to be a big number...
+PERSON = (deposit[1..N] -> PERSON | withdraw[1..N] -> PERSON).
+
+ACCOUNT = ACCOUNT[0],
+ACCOUNT[balance: 0..N] = (when(balance < N) deposit[amount:1..(N-balance)] -> ACCOUNT[balance+amount] | when(balance > 0) withdraw[amount:1..balance] -> ACCOUNT[balance-amount]).
+
+||SAVING_ACCOUNT = (a:PERSON || b:PERSON || {a,b}::ACCOUNT).
